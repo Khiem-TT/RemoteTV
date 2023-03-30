@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote TV</title>
+</head>
+<body>
+<script>
+    class Remote {
+        id;
+        tv;
+
+        constructor(id, tv) {
+            this.id = id;
+            this.tv = tv;
+        }
+
+        setChannel(channel) {
+            this.tv.channel = channel;
+        }
+
+        setVolume(volume) {
+            this.tv.volume = volume;
+        }
+
+        setStatus(status) {
+            this.tv.status = status;
+        }
+    }
+
+    class TiVi {
+        channel;
+        volume;
+        status;
+
+        constructor(channel, volume) {
+            this.channel = channel;
+            this.volume = volume;
+        }
+
+        getStatus() {
+            if (this.status) {
+                alert('TV on');
+            } else {
+                alert('TV off');
+            }
+        }
+
+        turnOn() {
+            return this.status = true;
+        }
+
+        turnOff() {
+            return this.status = false;
+        }
+
+        getChannelTV() {
+            return this.channel;
+        }
+
+        getVolumeTV() {
+            return this.volume;
+        }
+
+        setChannelTV(newchannel) {
+            this.channel = newchannel;
+        }
+
+        setVolume(newvolume) {
+            this.volume = newvolume;
+        }
+    }
+
+    let sony = new TiVi(1, 10);
+    let remote = new Remote(1, sony);
+    sony.turnOn();
+    sony.getStatus();
+    sony.setChannelTV(7);
+    console.log(sony.getChannelTV());
+
+    remote.setChannel(3);
+    remote.setVolume(12);
+    console.log(sony.getChannelTV());
+    console.log(sony.getVolumeTV());
+    remote.setStatus(false);
+    sony.getStatus();
+
+</script>
+</body>
+</html>
